@@ -1,7 +1,16 @@
-import { Body, Controller, Post, Request, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Req,
+  Request,
+  UseGuards,
+} from '@nestjs/common';
 import { LocalAuthGuard } from './local-auth.guard';
 import { AuthService } from './auth.service';
 import { UserService } from 'src/user/user.service';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('auth')
 export class AuthController {
@@ -9,6 +18,20 @@ export class AuthController {
     private authService: AuthService,
     private userService: UserService,
   ) {}
+
+  @Get('kakao')
+  @UseGuards(AuthGuard('kakao'))
+  async kakaoLogin() {
+    // 카카오 로그인 유도
+  }
+
+  @Get('kakao/callback')
+  @UseGuards(AuthGuard('kakao'))
+  async kakaoLoginCallback(@Req() req) {
+    const user = req.user;
+    const { access_token, refresh_token } = await this.authService.login(user);
+    return { access_token, refresh_token };
+  }
 
   @UseGuards(LocalAuthGuard)
   @Post('login')

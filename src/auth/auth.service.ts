@@ -2,13 +2,42 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UserService } from 'src/user/user.service';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
+import { PrismaClient } from '@prisma/client';
 
 @Injectable()
 export class AuthService {
   constructor(
     private userService: UserService,
     private jwtService: JwtService,
+    private prisma: PrismaClient,
   ) {}
+
+  async validateKakaoUser(profile: any) {
+    const { kakaoId, username, email, accessToken, refreshToken } = profile;
+    let user = await this.prisma.user.findUnique({ where: { kakaoId } });
+
+    if (!user) {
+      user = await this.prisma.user.create({
+        data: {
+          kakaoId,
+          username,
+          email,
+          kakaoAccessToken: accessToken,
+          kakaoRefreshToken: refreshToken,
+        },
+      });
+    } else {
+      await this.prisma.user.update({
+        where: { id: user.id },
+        data: {
+          kakaoAccessToken: accessToken,
+          kakaoRefreshToken: refreshToken,
+        },
+      });
+    }
+
+    return user;
+  }
 
   async validateUser(username: string, pass: string): Promise<any> {
     const user = await this.userService.getUserByUserName(username);
