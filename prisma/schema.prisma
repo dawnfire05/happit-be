@@ -14,43 +14,46 @@ datasource db {
 }
 
 model user {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  username  String?
-  password String
-  refreshTokens RefreshToken[]
-  habits habit[]
-  records record[]
+  id                Int            @id @default(autoincrement())
+  email             String         @unique
+  username          String?
+  password          String
+  refreshTokens     RefreshToken[]
+  habits            habit[]
+  records           record[]
+  kakaoId           String?        @unique // 카카오 ID 추가
+  kakaoAccessToken  String? // 카카오 액세스 토큰 추가
+  kakaoRefreshToken String? // 카카오 리프레시 토큰 추가
 }
 
 model RefreshToken {
-  id         Int      @id @default(autoincrement())
-  token      String   @unique
-  userId     Int
-  user       user     @relation(fields: [userId], references: [id])
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  userId    Int
+  user      user     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
-model habit{
-  id Int @id @default(autoincrement())
-  name String
+model habit {
+  id          Int      @id @default(autoincrement())
+  name        String
   description String
-  status String // activated or archived
+  status      String // activated or archived
   repeat_type Int // 1: everyday 2: day of week
-  repeat_day Int // from 1 to 7 (monday~sunday)
-  created_at DateTime @default(now())
+  repeat_day  Int // from 1 to 7 (monday~sunday)
+  created_at  DateTime @default(now())
 
-  user user @relation(fields: [user_id], references: [id])
+  user    user @relation(fields: [user_id], references: [id])
   user_id Int
 }
 
-model record{
-  id Int @id @default(autoincrement())
-  date DateTime //날짜만 저장하도록 변경 필요
+model record {
+  id         Int      @id @default(autoincrement())
+  date       DateTime //날짜만 저장하도록 변경 필요
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
-  user user @relation(fields: [user_id], references: [id])
+  user    user @relation(fields: [user_id], references: [id])
   user_id Int
 }
