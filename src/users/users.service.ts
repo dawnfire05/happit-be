@@ -1,24 +1,51 @@
 import { Injectable } from '@nestjs/common';
+import { Prisma } from '@prisma/client';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 // This should be a real class/interface representing a user entity
 export type User = any;
 
 @Injectable()
 export class UsersService {
-  private readonly users = [
-    {
-      userId: 1,
-      username: 'john',
-      password: 'changeme',
-    },
-    {
-      userId: 2,
-      username: 'maria',
-      password: 'guess',
-    },
-  ];
+  constructor(private prisma: PrismaService) {}
 
-  async findOne(username: string): Promise<User | undefined> {
-    return this.users.find((user) => user.username === username);
+  //post
+  async createUser(data: Prisma.userCreateInput): Promise<User> {
+    return this.prisma.user.create({
+      data,
+    });
+  }
+
+  //get
+  async getUsers(): Promise<User[]> {
+    return this.prisma.user.findMany();
+  }
+
+  //get
+  async getUserById(id: number): Promise<User | null> {
+    return this.prisma.user.findUnique({
+      where: { id },
+    });
+  }
+
+  async getUserByUserName(name: string): Promise<User | null> {
+    return this.prisma.user.findFirst({
+      where: { username: name },
+    });
+  }
+
+  //put
+  async updateUser(id: number, data: Prisma.userUpdateInput): Promise<User> {
+    return this.prisma.user.update({
+      where: { id },
+      data,
+    });
+  }
+
+  //delete
+  async deleteUser(id: number): Promise<User> {
+    return this.prisma.user.delete({
+      where: { id },
+    });
   }
 }
