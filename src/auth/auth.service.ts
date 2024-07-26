@@ -30,6 +30,8 @@ export class AuthService {
       await this.prisma.user.update({
         where: { id: user.id },
         data: {
+          email,
+          username,
           kakaoAccessToken: accessToken,
           kakaoRefreshToken: refreshToken,
         },

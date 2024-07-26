@@ -15,13 +15,13 @@ datasource db {
 
 model user {
   id                Int            @id @default(autoincrement())
-  email             String         @unique
+  email             String?         @unique //나중에 이메일 받게 되면 다시 수정
   username          String?
   password          String?
   refreshTokens     RefreshToken[]
   habits            habit[]
   records           record[]
-  kakaoId           String?        @unique // 카카오 ID 추가
+  kakaoId           BigInt?        @unique // 카카오 ID 추가
   kakaoAccessToken  String? // 카카오 액세스 토큰 추가
   kakaoRefreshToken String? // 카카오 리프레시 토큰 추가
 }

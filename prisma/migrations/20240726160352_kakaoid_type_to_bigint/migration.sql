@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "user" ALTER COLUMN "kakaoId" SET DATA TYPE BIGINT;
