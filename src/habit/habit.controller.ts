@@ -12,7 +12,7 @@ import {
 } from '@nestjs/common';
 import { HabitService } from './habit.service';
 import { habit as habitModel } from '@prisma/client';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { GetUser } from 'src/common/decorators/user.decorator';
 
 @Controller('habit')
