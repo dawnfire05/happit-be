@@ -1,11 +1,14 @@
-import { Controller, Get, Post, Request, UseGuards } from '@nestjs/common';
+import { Body, Controller, Post, Request, UseGuards } from '@nestjs/common';
 import { LocalAuthGuard } from './local-auth.guard';
 import { AuthService } from './auth.service';
-import { AuthGuard } from '@nestjs/passport';
+import { UserService } from 'src/user/user.service';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private userService: UserService,
+  ) {}
 
   @UseGuards(LocalAuthGuard)
   @Post('login')
@@ -13,11 +16,14 @@ export class AuthController {
     return this.authService.login(req.user);
   }
 
-  @UseGuards(AuthGuard('jwt'))
-  @Get('logout')
-  async logout() {}
+  @Post('refresh')
+  async refresh(@Body('refresh_token') refreshToken: string) {
+    return this.authService.refresh(refreshToken);
+  }
 
-  @UseGuards(AuthGuard('jwt'))
-  @Get('refreshToken')
-  async refreshToken() {}
+  @Post('logout')
+  async logout(@Body('refresh_token') refreshToken: string) {
+    await this.userService.invalidateRefreshToken(refreshToken);
+    return { message: 'Logged out' };
+  }
 }

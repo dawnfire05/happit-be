@@ -10,6 +10,34 @@ export type User = any;
 export class UserService {
   constructor(private prisma: PrismaService) {}
 
+  async setRefreshToken(userId: number, refreshToken: string) {
+    await this.prisma.refreshToken.create({
+      data: {
+        token: refreshToken,
+        userId: userId,
+      },
+    });
+  }
+
+  async getUserIfRefreshTokenMatches(userId: number, refreshToken: string) {
+    return this.prisma.user.findFirst({
+      where: {
+        id: userId,
+        refreshTokens: {
+          some: {
+            token: refreshToken,
+          },
+        },
+      },
+    });
+  }
+
+  async invalidateRefreshToken(refreshToken: string) {
+    await this.prisma.refreshToken.delete({
+      where: { token: refreshToken },
+    });
+  }
+
   //post
   async createUser(data: Prisma.userCreateInput): Promise<User> {
     const salt = await bcrypt.genSalt();

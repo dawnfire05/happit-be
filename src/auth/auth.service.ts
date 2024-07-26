@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UserService } from 'src/user/user.service';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
@@ -10,13 +10,6 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async login(user: any) {
-    const payload = { username: user.username, sub: user.userId };
-    return {
-      access_token: this.jwtService.sign(payload),
-    };
-  }
-
   async validateUser(username: string, pass: string): Promise<any> {
     const user = await this.userService.getUserByUserName(username);
     if (user && (await bcrypt.compare(pass, user.password))) {
@@ -25,5 +18,56 @@ export class AuthService {
       return result;
     }
     return null;
+  }
+
+  //validateUser 완료된 후 jwt token 발급해주면서 login
+  async login(user: any) {
+    const payload = { username: user.username, sub: user.userId };
+    const refreshToken = this.jwtService.sign(payload, {
+      expiresIn: '7d',
+      secret: process.env.JWT_REFRESH_TOKEN_SECRET,
+    });
+    await this.userService.setRefreshToken(user.id, refreshToken);
+    return {
+      access_token: this.jwtService.sign(payload, {
+        secret: process.env.JWT_ACCESS_TOKEN_SECRET,
+        expiresIn: process.env.JWT_ACCESS_TOKEN_EXPIRATION_TIME,
+      }),
+      refresh_token: refreshToken,
+    };
+  }
+
+  async refresh(refreshToken: string) {
+    try {
+      const payload = this.jwtService.verify(refreshToken, {
+        secret: process.env.JWT_REFRESH_TOKEN_SECRET,
+      });
+      const user = await this.userService.getUserIfRefreshTokenMatches(
+        payload.sub,
+        refreshToken,
+      );
+
+      if (!user) {
+        throw new UnauthorizedException('Invalid refresh token');
+      }
+
+      const newPayload = { username: user.username, sub: user.id };
+      const newRefreshToken = this.jwtService.sign(newPayload, {
+        expiresIn: '7d',
+        secret: process.env.JWT_REFRESH_TOKEN_SECRET,
+      });
+      await this.userService.setRefreshToken(user.id, newRefreshToken);
+      await this.userService.invalidateRefreshToken(refreshToken);
+
+      return {
+        access_token: this.jwtService.sign(newPayload, {
+          expiresIn: '60m',
+          secret: process.env.JWT_ACCESS_TOKEN_SECRET,
+        }),
+        refresh_token: newRefreshToken,
+      };
+    } catch (e) {
+      throw new UnauthorizedException('Invalid refresh token');
+    }
   }
 }

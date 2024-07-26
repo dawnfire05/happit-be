@@ -1,34 +1,95 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  ParseIntPipe,
+  UseGuards,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { HabitService } from './habit.service';
-import { CreateHabitDto } from './dto/create-habit.dto';
-import { UpdateHabitDto } from './dto/update-habit.dto';
+import { habit as habitModel } from '@prisma/client';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { GetUser } from 'src/common/decorators/user.decorator';
 
 @Controller('habit')
+@UseGuards(JwtAuthGuard)
 export class HabitController {
   constructor(private readonly habitService: HabitService) {}
 
   @Post()
-  create(@Body() createHabitDto: CreateHabitDto) {
-    return this.habitService.create(createHabitDto);
+  async createHabit(
+    @Body()
+    habitData: {
+      name: string;
+      description: string;
+      status: string;
+      repeat_type: number;
+      repeat_day: number;
+    },
+    @GetUser() user: { userId: number },
+  ): Promise<habitModel> {
+    const { name, description, status, repeat_type, repeat_day } = habitData;
+    return this.habitService.createHabit({
+      name,
+      description,
+      status,
+      repeat_type,
+      repeat_day,
+      user: {
+        connect: {
+          id: user.userId,
+        },
+      },
+    });
   }
 
-  @Get()
-  findAll() {
-    return this.habitService.findAll();
+  @Get(':userId')
+  async getHabits(
+    @Param('userId', ParseIntPipe) userId: number,
+  ): Promise<habitModel[]> {
+    return this.habitService.getHabits(userId);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.habitService.findOne(+id);
+  @Get('detail/:id')
+  async getHabitById(
+    @Param('id', ParseIntPipe) id: number,
+  ): Promise<habitModel | null> {
+    return this.habitService.getHabitById(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateHabitDto: UpdateHabitDto) {
-    return this.habitService.update(+id, updateHabitDto);
+  async updateHabit(
+    @Param('id', ParseIntPipe) id: number,
+    @Body()
+    habitData: {
+      name?: string;
+      description?: string;
+      status?: string;
+      repeat_type?: number;
+      repeat_day?: number;
+    },
+    @GetUser() user: { userId: number },
+  ): Promise<habitModel> {
+    const habit = await this.habitService.getHabitById(id);
+    if (habit.user_id !== user.userId) {
+      throw new UnauthorizedException('You can only update your own habits.');
+    }
+    return this.habitService.updateHabit(id, habitData);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.habitService.remove(+id);
+  async deleteHabit(
+    @Param('id', ParseIntPipe) id: number,
+    @GetUser() user: { userId: number },
+  ): Promise<habitModel> {
+    const habit = await this.habitService.getHabitById(id);
+    if (habit.user_id !== user.userId) {
+      throw new UnauthorizedException('You can only delete your own habits.');
+    }
+    return this.habitService.deleteHabit(id);
   }
 }

@@ -7,29 +7,38 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  Request,
+  UseGuards,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { Prisma, user as userModel } from '@prisma/client';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 @Controller('user')
 export class UserController {
-  constructor(private readonly Userervice: UserService) {}
+  constructor(private readonly userService: UserService) {}
 
   @Post()
   async createUser(
     @Body() userData: Prisma.userCreateInput,
   ): Promise<userModel> {
-    return this.Userervice.createUser(userData);
+    return this.userService.createUser(userData);
   }
 
   @Get()
   async getUsers(): Promise<userModel[]> {
-    return this.Userervice.getUsers();
+    return this.userService.getUsers();
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('profile')
+  getProfile(@Request() req) {
+    return req.user;
   }
 
   @Get(':id')
   async getUserById(@Param('id', ParseIntPipe) id: number): Promise<userModel> {
-    return this.Userervice.getUserById(id);
+    return this.userService.getUserById(id);
   }
 
   @Put(':id')
@@ -37,11 +46,11 @@ export class UserController {
     @Param('id', ParseIntPipe) id: number,
     @Body() userData: Prisma.userUpdateInput,
   ): Promise<userModel> {
-    return this.Userervice.updateUser(id, userData);
+    return this.userService.updateUser(id, userData);
   }
 
   @Delete(':id')
   async deleteUser(@Param('id', ParseIntPipe) id: number): Promise<userModel> {
-    return this.Userervice.deleteUser(id);
+    return this.userService.deleteUser(id);
   }
 }
