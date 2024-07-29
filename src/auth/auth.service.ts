@@ -51,7 +51,6 @@ export class AuthService {
     return null;
   }
 
-  //validateUser 완료된 후 jwt token 발급해주면서 login
   async login(user: any) {
     const payload = { username: user.username, sub: user.userId };
     const refreshToken = this.jwtService.sign(payload, {

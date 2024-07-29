@@ -1,10 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { Prisma } from '@prisma/client';
+import { Prisma, user as User } from '@prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
 import * as bcrypt from 'bcrypt';
-
-// This should be a real class/interface representing a user entity
-export type User = any;
 
 @Injectable()
 export class UserService {
@@ -49,7 +46,8 @@ export class UserService {
 
   //get
   async getUsers(): Promise<User[]> {
-    return this.prisma.user.findMany();
+    const users = await this.prisma.user.findMany();
+    return users;
   }
 
   //get

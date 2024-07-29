@@ -21,9 +21,7 @@ export class AuthController {
 
   @Get('kakao')
   @UseGuards(AuthGuard('kakao'))
-  async kakaoLogin() {
-    // 카카오 로그인 유도
-  }
+  async kakaoLogin() {}
 
   @Get('kakao/callback')
   @UseGuards(AuthGuard('kakao'))
