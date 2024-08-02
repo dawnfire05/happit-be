@@ -1,33 +1,47 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
-import { habit, Prisma } from '@prisma/client';
+import { Habit } from '@prisma/client';
+import { UpdateHabitDTO } from './dto/update-habit.dto';
+import { CreateHabitDTO } from './dto/create-habit.dto';
 
 @Injectable()
 export class HabitService {
   constructor(private prisma: PrismaService) {}
 
-  async createHabit(data: Prisma.habitCreateInput): Promise<habit> {
+  async createHabit(userId: number, data: CreateHabitDTO): Promise<Habit> {
     return this.prisma.habit.create({
-      data,
+      data: {
+        user: {
+          connect: {
+            id: userId,
+          },
+        },
+        name: data.name,
+        type: data.type,
+        description: data.description,
+        archiveStatus: data.archiveStatus,
+        repeatType: data.repeatType,
+        repeatDay: data.repeatDay,
+      },
     });
   }
 
-  async getHabits(userId: number): Promise<habit[]> {
-    return this.prisma.habit.findMany({ where: { user_id: userId } });
+  async getHabits(userId: number): Promise<Habit[]> {
+    return this.prisma.habit.findMany({ where: { userId: userId } });
   }
 
-  async getHabitById(id: number): Promise<habit | null> {
+  async getHabitById(id: number): Promise<Habit | null> {
     return this.prisma.habit.findUnique({ where: { id } });
   }
 
-  async updateHabit(id: number, data: Prisma.habitUpdateInput): Promise<habit> {
+  async updateHabit(id: number, data: UpdateHabitDTO): Promise<Habit> {
     return this.prisma.habit.update({
       where: { id },
       data,
     });
   }
 
-  async deleteHabit(id: number): Promise<habit> {
+  async deleteHabit(id: number): Promise<Habit> {
     return this.prisma.habit.delete({ where: { id } });
   }
 }

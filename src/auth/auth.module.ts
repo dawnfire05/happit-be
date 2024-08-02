@@ -14,7 +14,7 @@ import { KakaoStrategy } from './strategies/kakao.strategy';
     PassportModule,
     JwtModule.register({
       secret: process.env.JWT_ACCESS_TOKEN_SECRET,
-      signOptions: { expiresIn: '10m' },
+      signOptions: { expiresIn: '30m' },
     }),
   ],
   controllers: [AuthController],

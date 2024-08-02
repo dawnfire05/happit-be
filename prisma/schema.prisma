@@ -36,6 +36,21 @@ model RefreshToken {
   updatedAt DateTime @updatedAt
 }
 
+enum DayOfWeek {
+  mon
+  tue
+  wed
+  thu
+  fri
+  sat
+  sun
+  none
+}
+
+enum RepeatType {
+  daily
+  weekly
+}
 model Habit {
   id     Int  @id @default(autoincrement())
   user   User @relation(fields: [userId], references: [id])
@@ -45,8 +60,8 @@ model Habit {
   type          String  @default("none")
   description   String?
   archiveStatus Boolean @default(false)
-  repeatType    String
-  repeatDay     String
+  repeatType    RepeatType
+  repeatDay     DayOfWeek[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

@@ -7,11 +7,11 @@ import {
   Request,
   UseGuards,
 } from '@nestjs/common';
-import { LocalAuthGuard } from './guards/local-auth.guard';
 import { AuthService } from './auth.service';
 import { UserService } from 'src/user/user.service';
 import { AuthGuard } from '@nestjs/passport';
-
+import { ApiTags } from '@nestjs/swagger';
+@ApiTags('auth')
 @Controller('auth')
 export class AuthController {
   constructor(
@@ -19,6 +19,7 @@ export class AuthController {
     private userService: UserService,
   ) {}
 
+  //kakao logic
   @Get('kakao')
   @UseGuards(AuthGuard('kakao'))
   async kakaoLogin() {}
@@ -31,7 +32,7 @@ export class AuthController {
     return { access_token, refresh_token };
   }
 
-  @UseGuards(LocalAuthGuard)
+  @UseGuards(AuthGuard('local'))
   @Post('login')
   async login(@Request() req) {
     return this.authService.login(req.user);

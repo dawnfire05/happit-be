@@ -11,22 +11,21 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { UserService } from './user.service';
-import { Prisma, user as userModel } from '@prisma/client';
+import { Prisma, User } from '@prisma/client';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
-
+import { ApiTags } from '@nestjs/swagger';
+@ApiTags('user')
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Post()
-  async createUser(
-    @Body() userData: Prisma.userCreateInput,
-  ): Promise<userModel> {
+  async createUser(@Body() userData: Prisma.UserCreateInput): Promise<User> {
     return this.userService.createUser(userData);
   }
 
   @Get()
-  async getUsers(): Promise<userModel[]> {
+  async getUsers(): Promise<User[]> {
     return this.userService.getUsers();
   }
 
@@ -37,20 +36,20 @@ export class UserController {
   }
 
   @Get(':id')
-  async getUserById(@Param('id', ParseIntPipe) id: number): Promise<userModel> {
+  async getUserById(@Param('id', ParseIntPipe) id: number): Promise<User> {
     return this.userService.getUserById(id);
   }
 
   @Put(':id')
   async updateUser(
     @Param('id', ParseIntPipe) id: number,
-    @Body() userData: Prisma.userUpdateInput,
-  ): Promise<userModel> {
+    @Body() userData: Prisma.UserUpdateInput,
+  ): Promise<User> {
     return this.userService.updateUser(id, userData);
   }
 
   @Delete(':id')
-  async deleteUser(@Param('id', ParseIntPipe) id: number): Promise<userModel> {
+  async deleteUser(@Param('id', ParseIntPipe) id: number): Promise<User> {
     return this.userService.deleteUser(id);
   }
 }
