@@ -24,11 +24,11 @@ import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 export class HabitController {
   constructor(private readonly habitService: HabitService) {}
 
+  @Post()
   @ApiBody({
     type: CreateHabitDTO,
   })
   @ApiResponse({ status: 201, description: 'successful' })
-  @Post()
   async createHabit(
     @Body() data: CreateHabitDTO,
     @Request() req,
@@ -36,32 +36,36 @@ export class HabitController {
     return this.habitService.createHabit(req.user.id, data);
   }
 
+  @Get()
   @ApiResponse({ status: 200, description: 'successful' })
-  @Get(':userId')
-  async getHabits(
-    @Param('userId', ParseIntPipe) userId: number,
-  ): Promise<Habit[]> {
-    return this.habitService.getHabits(userId);
+  async getHabits(@Request() req): Promise<Habit[]> {
+    return this.habitService.getHabits(req.user.id);
   }
 
-  @Get('detail/:id')
+  @Get(':id')
   async getHabitById(
     @Param('id', ParseIntPipe) id: number,
+    @Request() req,
   ): Promise<Habit | null> {
-    return this.habitService.getHabitById(id);
+    const habit = await this.habitService.getHabitById(id);
+    if (habit.userId === req.user.id) return habit;
+    else
+      throw new UnauthorizedException(
+        'you can only access habit created by yourself',
+      );
   }
 
   @Patch(':id')
   async updateHabit(
     @Param('id', ParseIntPipe) id: number,
-    @Body() updateHabitDto: UpdateHabitDTO,
+    @Body() data: UpdateHabitDTO,
     @Request() req,
   ): Promise<Habit> {
     const habit = await this.habitService.getHabitById(id);
-    if (habit.userId !== req.user.id) {
+    if (habit.userId === req.user.id) {
+      return this.habitService.updateHabit(id, data);
+    } else
       throw new UnauthorizedException('You can only update your own habits.');
-    }
-    return this.habitService.updateHabit(id, updateHabitDto);
   }
 
   @Delete(':id')
@@ -70,9 +74,9 @@ export class HabitController {
     @Request() req,
   ): Promise<Habit> {
     const habit = await this.habitService.getHabitById(id);
-    if (habit.userId !== req.user.id) {
+    if (habit.userId === req.user.id) {
+      return this.habitService.deleteHabit(id);
+    } else
       throw new UnauthorizedException('You can only delete your own habits.');
-    }
-    return this.habitService.deleteHabit(id);
   }
 }
