@@ -29,18 +29,9 @@ export class CreateHabitDTO {
 
   @ApiProperty({
     description: 'The repeat days of the habit',
-    enum: ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun', 'none'],
+    enum: ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'],
     isArray: true,
     required: false,
   })
-  repeatDay?: (
-    | 'mon'
-    | 'tue'
-    | 'wed'
-    | 'thu'
-    | 'fri'
-    | 'sat'
-    | 'sun'
-    | 'none'
-  )[];
+  repeatDay?: ('mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun')[];
 }
