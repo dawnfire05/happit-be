@@ -44,7 +44,6 @@ enum DayOfWeek {
   fri
   sat
   sun
-  none
 }
 
 enum RepeatType {
