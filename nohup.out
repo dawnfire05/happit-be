@@ -1,0 +1,336 @@
+
+> happit-be@0.0.1 start:dev
+> nest start --watch
+
+c[[90m7:39:42 AM[0m] Starting compilation in watch mode...
+
+[[90m7:39:48 AM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +34ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +3ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUserModule dependencies initialized[39m[38;5;3m +4ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHabitModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAppController {/}:[39m[38;5;3m +28ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/kakao, GET} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/kakao/callback, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/refresh, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUserController {/user}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/profile, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, PUT} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHabitController {/habit}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, PATCH} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3060  - [39m08/03/2024, 7:39:49 AM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +194ms[39m
+
+> happit-be@0.0.1 start:dev
+> nest start --watch
+
+c[[90m7:39:51 AM[0m] Starting compilation in watch mode...
+
+[[90m7:39:57 AM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +35ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +3ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUserModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHabitModule dependencies initialized[39m[38;5;3m +3ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAppController {/}:[39m[38;5;3m +27ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/kakao, GET} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/kakao/callback, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/refresh, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUserController {/user}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/profile, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, PUT} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHabitController {/habit}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, PATCH} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +250ms[39m
+[31m[Nest] 3117  - [39m08/03/2024, 7:39:59 AM [31m  ERROR[39m [38;5;3m[NestApplication] [39m[31mError: listen EADDRINUSE: address already in use :::3000[39m[38;5;3m +2ms[39m
+node:internal/errors:497
+    ErrorCaptureStackTrace(err);
+    ^
+
+Error: listen EADDRINUSE: address already in use :::3000
+    at __node_internal_captureLargerStackTrace (node:internal/errors:497:5)
+    at __node_internal_uvExceptionWithHostPort (node:internal/errors:594:12)
+    at Server.setupListenHandle [as _listen2] (node:net:1872:16)
+    at listenInCluster (node:net:1920:12)
+    at Server.listen (node:net:2008:7)
+    at ExpressAdapter.listen (/home/ec2-user/happit-be/node_modules/@nestjs/platform-express/adapters/express-adapter.js:95:32)
+    at /home/ec2-user/happit-be/node_modules/@nestjs/core/nest-application.js:180:30
+    at new Promise (<anonymous>)
+    at NestApplication.listen (/home/ec2-user/happit-be/node_modules/@nestjs/core/nest-application.js:170:16)
+    at bootstrap (/home/ec2-user/happit-be/src/main.ts:16:3) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+
+Node.js v20.9.0
+
+> happit-be@0.0.1 start:dev
+> nest start --watch
+
+c[[90m7:43:42 AM[0m] Starting compilation in watch mode...
+
+[[90m7:43:48 AM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +46ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +3ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUserModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHabitModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAppController {/}:[39m[38;5;3m +39ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/kakao, GET} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/kakao/callback, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/refresh, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUserController {/user}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/profile, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, PUT} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHabitController {/habit}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 3322  - [39m08/03/2024, 7:43:49 AM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +162ms[39m
+
+> happit-be@0.0.1 start:dev
+> nest start --watch
+
+c[[90m10:46:11 AM[0m] Starting compilation in watch mode...
+
+[[90m10:46:17 AM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +33ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +8ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +4ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUserModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHabitModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAppController {/}:[39m[38;5;3m +27ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/kakao, GET} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/kakao/callback, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/refresh, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUserController {/user}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/profile, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, PUT} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHabitController {/habit}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 46371  - [39m08/04/2024, 10:46:18 AM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +230ms[39m
+
+> happit-be@0.0.1 start:dev
+> nest start --watch
+
+c[[90m4:01:46 AM[0m] Starting compilation in watch mode...
+
+[[90m4:01:52 AM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +43ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +3ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUserModule dependencies initialized[39m[38;5;3m +14ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHabitModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAppController {/}:[39m[38;5;3m +27ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/kakao, GET} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/kakao/callback, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/refresh, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUserController {/user}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/profile, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, PUT} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHabitController {/habit}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 151283  - [39m08/07/2024, 4:01:53 AM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +239ms[39m
+
+> happit-be@0.0.1 start:dev
+> nest start --watch
+
+c[[90m8:30:38 AM[0m] Starting compilation in watch mode...
+
+[[90m8:30:45 AM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +38ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +3ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUserModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHabitModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAppController {/}:[39m[38;5;3m +38ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/kakao, GET} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/kakao/callback, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/refresh, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUserController {/user}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/profile, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, PUT} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHabitController {/habit}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:45 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 158980  - [39m08/07/2024, 8:30:46 AM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +198ms[39m
+
+> happit-be@0.0.1 start
+> nest start
+
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +31ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +3ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUserModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHabitModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAppController {/}:[39m[38;5;3m +40ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/kakao, GET} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/kakao/callback, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/refresh, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUserController {/user}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/profile, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, PUT} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHabitController {/habit}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 189175  - [39m08/08/2024, 2:42:02 AM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +230ms[39m
+
+> happit-be@0.0.1 start:dev
+> nest start --watch
+
+c[[90m6:15:17 AM[0m] Starting compilation in watch mode...
+
+[[90m6:15:24 AM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:24 AM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +37ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +4ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUserModule dependencies initialized[39m[38;5;3m +3ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHabitModule dependencies initialized[39m[38;5;3m +10ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAppController {/}:[39m[38;5;3m +29ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/kakao, GET} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/kakao/callback, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/refresh, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUserController {/user}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/profile, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, PUT} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/user/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHabitController {/habit}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, PATCH} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/habit/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 194758  - [39m08/08/2024, 6:15:25 AM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +211ms[39m
+c[[90m7:45:56 AM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/habit/habit.service.ts[0m:[93m13[0m:[93m7[0m - [91merror[0m[90m TS2322: [0mType '{ user: { connect: { id: number; }; }; name: string; type: string; description: string; archiveStatus: boolean; repeatType: "daily" | "weekly"; repeatDay: ("mon" | "tue" | "wed" | "thu" | "fri" | "sat" | "sun")[]; }' is not assignable to type '(Without<HabitCreateInput, HabitUncheckedCreateInput> & HabitUncheckedCreateInput) | (Without<...> & HabitCreateInput)'.
+  Type '{ user: { connect: { id: number; }; }; name: string; type: string; description: string; archiveStatus: boolean; repeatType: "daily" | "weekly"; repeatDay: ("mon" | "tue" | "wed" | "thu" | "fri" | "sat" | "sun")[]; }' is not assignable to type 'Without<HabitUncheckedCreateInput, HabitCreateInput> & HabitCreateInput'.
+    Property 'themeColor' is missing in type '{ user: { connect: { id: number; }; }; name: string; type: string; description: string; archiveStatus: boolean; repeatType: "daily" | "weekly"; repeatDay: ("mon" | "tue" | "wed" | "thu" | "fri" | "sat" | "sun")[]; }' but required in type 'HabitCreateInput'.
+
+[7m13[0m       data: {
+[7m  [0m [91m      ~~~~[0m
+
+  [96mnode_modules/.prisma/client/index.d.ts[0m:[93m5944[0m:[93m5[0m
+    [7m5944[0m     themeColor: number
+    [7m    [0m [96m    ~~~~~~~~~~[0m
+    'themeColor' is declared here.
+  [96mnode_modules/.prisma/client/index.d.ts[0m:[93m4187[0m:[93m5[0m
+    [7m4187[0m     data: XOR<HabitCreateInput, HabitUncheckedCreateInput>
+    [7m    [0m [96m    ~~~~[0m
+    The expected type comes from property 'data' which is declared here on type '{ select?: HabitSelect<DefaultArgs>; include?: HabitInclude<DefaultArgs>; data: (Without<HabitCreateInput, HabitUncheckedCreateInput> & HabitUncheckedCreateInput) | (Without<...> & HabitCreateInput); }'
+
+[[90m7:45:57 AM[0m] Found 1 error. Watching for file changes.
+
