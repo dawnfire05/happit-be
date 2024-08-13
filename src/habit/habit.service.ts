@@ -22,6 +22,8 @@ export class HabitService {
         archiveStatus: data.archiveStatus,
         repeatType: data.repeatType,
         repeatDay: data.repeatDay,
+        noticeTime: data.noticeTime,
+        themeColor: data.themeColor,
       },
     });
   }

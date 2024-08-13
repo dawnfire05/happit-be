@@ -34,4 +34,8 @@ export class CreateHabitDTO {
     required: false,
   })
   repeatDay?: ('mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun')[];
+
+  noticeTime: Date[];
+
+  themeColor: number; //enum : 0, 1, 2, 3, 4
 }
