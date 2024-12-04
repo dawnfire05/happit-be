@@ -62,7 +62,9 @@ model Habit {
   repeatType    RepeatType
   repeatDay     DayOfWeek[]
   noticeTime    DateTime[]
-  themeColor    Int // 0, 1, 2, 3, 4
+  themeColor    Int
+
+  records Record[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -73,7 +75,11 @@ model Record {
   user   User @relation(fields: [userId], references: [id])
   userId Int
 
-  date DateTime //날짜만 저장하도록 변경 필요
+  habit Habit @relation(fields: [habitId], references: [id])
+  habitId Int
+
+  date String
+  state String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
