@@ -15,11 +15,11 @@ import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('record')
 @Controller('record')
+@UseGuards(JwtAuthGuard)
 export class RecordController {
   constructor(private readonly recordService: RecordService) {}
 
   @Post()
-  @UseGuards(JwtAuthGuard)
   createRecord(@Body() createRecordDto: CreateOrUpdateRecordDto, @Req() req) {
     return this.recordService.createOrUpdateRecord(
       createRecordDto,
@@ -28,7 +28,6 @@ export class RecordController {
   }
 
   @Get()
-  @UseGuards(JwtAuthGuard)
   findAll(@Req() req) {
     return this.recordService.findAll(req.user.id);
   }
@@ -37,11 +36,6 @@ export class RecordController {
   findOne(@Param('id') id: string) {
     return this.recordService.findOne(+id);
   }
-
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() updateRecordDto: UpdateRecordDto) {
-  //   return this.recordService.update(+id, updateRecordDto);
-  // }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
