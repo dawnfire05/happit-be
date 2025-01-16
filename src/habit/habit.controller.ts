@@ -16,9 +16,10 @@ import { Habit } from '@prisma/client';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { CreateHabitDTO } from './dto/create-habit.dto';
 import { UpdateHabitDTO } from './dto/update-habit.dto';
-import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('habit')
+@ApiBearerAuth()
 @Controller('habit')
 @UseGuards(JwtAuthGuard)
 export class HabitController {

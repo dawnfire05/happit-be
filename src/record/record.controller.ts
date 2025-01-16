@@ -11,7 +11,9 @@ import {
 import { RecordService } from './record.service';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { CreateOrUpdateRecordDto } from './dto/create-or-update-record.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('record')
 @Controller('record')
 export class RecordController {
   constructor(private readonly recordService: RecordService) {}
