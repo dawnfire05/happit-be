@@ -37,8 +37,15 @@ export class RecordService {
     }
   }
 
-  findAll() {
-    return `This action returns all record`;
+  findAll(userId: number) {
+    return this.prisma.record.findMany({
+      where: {
+        userId: userId,
+      },
+      include: {
+        habit: true,
+      },
+    });
   }
 
   findOne(id: number) {
