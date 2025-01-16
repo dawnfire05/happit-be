@@ -49,7 +49,7 @@ export class RecordService {
   }
 
   findOne(id: number) {
-    return this.prisma.record.findUnique({ where: { id: id } });
+    return this.prisma.record.findMany({ where: { habitId: id } });
   }
 
   // update(id: number, updateRecordDto: UpdateRecordDto) {
