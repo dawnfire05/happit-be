@@ -37,24 +37,43 @@ export class RecordService {
     }
   }
 
-  findAll(userId: number) {
-    return this.prisma.record.findMany({
+  async findAll(userId: number) {
+    // Fetch all records for the given userId
+    const records = await this.prisma.record.findMany({
       where: {
         userId: userId,
       },
       include: {
-        habit: true,
+        habit: true, // Include habit information for grouping
       },
     });
+
+    // Group records by habitId
+    const groupedRecords = records.reduce((acc, record) => {
+      const habitId = record.habitId;
+
+      if (!acc[habitId]) {
+        acc[habitId] = {
+          habitId: habitId,
+          records: [],
+        };
+      }
+
+      acc[habitId].records.push({
+        date: record.date,
+        state: record.state,
+      });
+
+      return acc;
+    }, {});
+
+    // Convert the grouped records object to an array
+    return Object.values(groupedRecords);
   }
 
   findOne(id: number) {
     return this.prisma.record.findMany({ where: { habitId: id } });
   }
-
-  // update(id: number, updateRecordDto: UpdateRecordDto) {
-  //   return `This action updates a #${id} record`;
-  // }
 
   remove(id: number) {
     return `This action removes a #${id} record`;
