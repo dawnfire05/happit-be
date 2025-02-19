@@ -28,17 +28,17 @@ export class RecordController {
   }
 
   @Get()
-  findAll(@Req() req) {
+  getRecordOfAllHabit(@Req() req) {
     return this.recordService.findAll(req.user.id);
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  getRecordOfOneHabit(@Param('id') id: string) {
     return this.recordService.findOne(+id);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  removeRecord(@Param('id') id: string) {
     return this.recordService.remove(+id);
   }
 }
