@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { CreateOrUpdateRecordDto } from './dto/create-or-update-record.dto';
-// import { UpdateRecordDto } from './dto/update-record.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
@@ -38,17 +37,15 @@ export class RecordService {
   }
 
   async findAll(userId: number) {
-    // Fetch all records for the given userId
     const records = await this.prisma.record.findMany({
       where: {
         userId: userId,
       },
       include: {
-        habit: true, // Include habit information for grouping
+        habit: true,
       },
     });
 
-    // Group records by habitId
     const groupedRecords = records.reduce((acc, record) => {
       const habitId = record.habitId;
 
@@ -67,7 +64,6 @@ export class RecordService {
       return acc;
     }, {});
 
-    // Convert the grouped records object to an array
     return Object.values(groupedRecords);
   }
 
@@ -76,6 +72,6 @@ export class RecordService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} record`;
+    return this.prisma.record.delete({ where: { id: id } });
   }
 }
