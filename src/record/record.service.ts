@@ -38,9 +38,7 @@ export class RecordService {
 
   async findAll(userId: number) {
     const records = await this.prisma.record.findMany({
-      where: {
-        userId: userId,
-      },
+      where: { userId: userId },
       include: {
         habit: true,
       },
@@ -57,8 +55,11 @@ export class RecordService {
       }
 
       acc[habitId].records.push({
+        id: record.id,
         date: record.date,
         state: record.state,
+        createdAt: record.createdAt,
+        updatedAt: record.updatedAt,
       });
 
       return acc;
@@ -66,9 +67,17 @@ export class RecordService {
 
     return Object.values(groupedRecords);
   }
-
   findOne(id: number) {
-    return this.prisma.record.findMany({ where: { habitId: id } });
+    return this.prisma.record.findMany({
+      select: {
+        id: true,
+        date: true,
+        state: true,
+        createdAt: true,
+        updatedAt: true,
+      },
+      where: { habitId: id },
+    });
   }
 
   remove(id: number) {
