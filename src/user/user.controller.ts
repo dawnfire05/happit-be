@@ -33,6 +33,7 @@ export class UserController {
   @Get('profile')
   getProfile(@Request() req) {
     return req.user;
+    // hello
   }
 
   @Get(':id')
