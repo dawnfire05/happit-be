@@ -29,8 +29,8 @@ jobs:
     - name: Build and tag Docker image with Compose
       run: |
         docker-compose build
-        docker tag dawnfire05/happit-be_backend dawnfire05/happit-be:latest
-        docker tag dawnfire05/happit-be_backend dawnfire05/happit-be:${{ github.sha }}
+        docker tag dawnfire05/happit-be dawnfire05/happit-be:latest
+        docker tag dawnfire05/happit-be dawnfire05/happit-be:${{ github.sha }}
 
     - name: Push Docker image to Docker Hub
       run: |
