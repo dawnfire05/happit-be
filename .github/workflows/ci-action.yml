@@ -18,6 +18,10 @@ jobs:
         DOCKER_PASSWORD: ${{secrets.DOCKERHUB_PASSWORD}}
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
+    - name: Create .env file
+      run: |
+        echo "${{ secrets.ENV_VARS }}" > .env
+
     - name: Build the Docker image
       run: docker build -t happit-be .
     - name: taging
