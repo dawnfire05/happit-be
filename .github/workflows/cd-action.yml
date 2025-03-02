@@ -13,6 +13,15 @@ jobs:
     runs-on: self-hosted
 
     steps:
+    - name: Cleanup old Docker resources
+      run: |
+            docker system prune -af --volumes
+            docker images prune -a
+            docker volume prune -f
+
+    - name: Check disk space after cleanup
+      run: df -h
+  
     - name: Login Dockerhub
       env:
         DOCKER_USERNAME: ${{secrets.DOCKERHUB_USERNAME}}
