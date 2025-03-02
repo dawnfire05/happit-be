@@ -30,7 +30,6 @@ export class RecordController {
   @Get()
   getRecordOfAllHabit(@Req() req) {
     return this.recordService.findAll(req.user.id);
-    //test
   }
 
   @Get(':id')
