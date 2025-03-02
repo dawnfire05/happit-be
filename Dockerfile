@@ -1,6 +1,8 @@
-FROM node:20
+FROM node:20-alpine
 
 WORKDIR '/app'
+
+RUN apk add --no-cache openssl
 
 COPY .env .env
 
@@ -17,4 +19,4 @@ EXPOSE 3000
 
 RUN npm run build
 
-CMD ["node", "dist/main.js"]
+CMD ["npm", "run", "start:migrate:prod"]

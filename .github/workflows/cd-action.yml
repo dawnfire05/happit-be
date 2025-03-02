@@ -4,33 +4,32 @@ on:
   workflow_run:
     workflows: ["CI Pipeline"]
     types:
-        - completed
+      - completed
 
 jobs:
-
-  build:
-
+  deploy:
     runs-on: self-hosted
 
     steps:
     - name: Cleanup old Docker resources
       run: |
-            sudo docker system prune -af --volumes
-            sudo docker images prune -a
-            sudo docker volume prune -f
+        sudo docker system prune -af
+        sudo docker volume prune -f
 
     - name: Check disk space after cleanup
       run: df -h
-  
-    - name: Login Dockerhub
-      env:
-        DOCKER_USERNAME: ${{secrets.DOCKERHUB_USERNAME}}
-        DOCKER_PASSWORD: ${{secrets.DOCKERHUB_PASSWORD}}
-      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
-    - name: Pull Docker image
+    - name: Login to Docker Hub
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+      run: echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin
+
+    - name: Pull latest Docker image
       run: sudo docker pull dawnfire05/happit-be:latest
-    - name: Delete Old docker container
-      run: sudo docker rm -f happit-be-container || true
-    - name: Run Docker Container
-      run: sudo docker run -d -p 3000:3000 --name happit-be-container dawnfire05/happit-be:latest
+
+    - name: Stop and remove old containers
+      run: sudo docker-compose down
+
+    - name: Start services using Docker Compose
+      run: sudo docker-compose up -d --build

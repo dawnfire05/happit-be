@@ -5,26 +5,29 @@ on:
     branches: [ "main" ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Login Dockerhub
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Login to Docker Hub
       env:
-        DOCKER_USERNAME: ${{secrets.DOCKERHUB_USERNAME}}
-        DOCKER_PASSWORD: ${{secrets.DOCKERHUB_PASSWORD}}
-      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+      run: echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin
 
     - name: Create .env file
-      run: |
-        echo "${{ secrets.ENV_VARS }}" > .env
+      run: echo "${{ secrets.ENV_VARS }}" > .env
 
-    - name: Build the Docker image
-      run: docker build -t happit-be .
-    - name: taging
-      run: docker tag happit-be:latest dawnfire05/happit-be:latest
-    - name: Push to Dockerhub
-      run: docker push dawnfire05/happit-be:latest
+    - name: Build and tag Docker image with Compose
+      run: |
+        docker-compose build
+        docker tag dawnfire05/happit-be_backend dawnfire05/happit-be:latest
+        docker tag dawnfire05/happit-be_backend dawnfire05/happit-be:${{ github.sha }}
+
+    - name: Push Docker image to Docker Hub
+      run: |
+        docker push dawnfire05/happit-be:latest
+        docker push dawnfire05/happit-be:${{ github.sha }}
