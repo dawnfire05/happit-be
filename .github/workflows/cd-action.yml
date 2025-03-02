@@ -20,7 +20,7 @@ jobs:
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
     - name: Pull Docker image
-      run: sudo docker pull dawnfire05/happit-be-api:latest
+      run: sudo docker pull dawnfire05/happit-be:latest
     - name: Delete Old docker container
       run: sudo docker rm -f happit-be-container || true
     - name: Run Docker Container
