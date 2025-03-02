@@ -15,9 +15,9 @@ jobs:
     steps:
     - name: Cleanup old Docker resources
       run: |
-            docker system prune -af --volumes
-            docker images prune -a
-            docker volume prune -f
+            sudo docker system prune -af --volumes
+            sudo docker images prune -a
+            sudo docker volume prune -f
 
     - name: Check disk space after cleanup
       run: df -h
