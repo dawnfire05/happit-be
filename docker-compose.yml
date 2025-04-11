@@ -32,9 +32,6 @@ services:
         condition: service_healthy
     env_file:
       - .env  # Load environment variables from the .env file in the current directory
-    volumes:
-      - ./src:/app/src
-      - ./dist:/app/dist
 
 volumes:
   postgres_data:
