@@ -18,10 +18,12 @@ export class LoggingInterceptor implements NestInterceptor {
     const userAgent = headers['user-agent'] || '';
     const ip = request.ip || request.connection.remoteAddress;
 
-    console.log(`[${method}] ${url} - IP: ${ip} - User-Agent: ${userAgent}`);
-    console.log('Request Body:', body);
-    console.log('Query Parameters:', query);
-    console.log('Route Parameters:', params);
+    this.logger.log(
+      `[${method}] ${url} - IP: ${ip} - User-Agent: ${userAgent}`,
+    );
+    this.logger.log('Request Body:', JSON.stringify(body));
+    this.logger.log('Query Parameters:', JSON.stringify(query));
+    this.logger.log('Route Parameters:', JSON.stringify(params));
 
     const now = Date.now();
     return next.handle().pipe(
@@ -31,17 +33,17 @@ export class LoggingInterceptor implements NestInterceptor {
           const { statusCode } = response;
           const responseTime = Date.now() - now;
 
-          console.log(
+          this.logger.log(
             `[${method}] ${url} - Status: ${statusCode} - ${responseTime}ms`,
           );
-          console.log('Response Data:', data);
+          this.logger.log('Response Data:', JSON.stringify(data));
         },
         error: (error) => {
           const responseTime = Date.now() - now;
-          console.error(
+          this.logger.error(
             `[${method}] ${url} - Error: ${error.message} - ${responseTime}ms`,
           );
-          console.error('Error Stack:', error.stack);
+          this.logger.error('Error Stack:', error.stack);
         },
       }),
     );
