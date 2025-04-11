@@ -10,7 +10,7 @@ import { tap } from 'rxjs/operators';
 
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor {
-  private readonly logger = new Logger(LoggingInterceptor.name);
+  private readonly logger = new Logger('HTTP');
 
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
     const request = context.switchToHttp().getRequest();
@@ -18,12 +18,10 @@ export class LoggingInterceptor implements NestInterceptor {
     const userAgent = headers['user-agent'] || '';
     const ip = request.ip || request.connection.remoteAddress;
 
-    this.logger.log(
-      `[${method}] ${url} - IP: ${ip} - User-Agent: ${userAgent}`,
-    );
-    this.logger.debug('Request Body:', body);
-    this.logger.debug('Query Parameters:', query);
-    this.logger.debug('Route Parameters:', params);
+    console.log(`[${method}] ${url} - IP: ${ip} - User-Agent: ${userAgent}`);
+    console.log('Request Body:', body);
+    console.log('Query Parameters:', query);
+    console.log('Route Parameters:', params);
 
     const now = Date.now();
     return next.handle().pipe(
@@ -33,17 +31,17 @@ export class LoggingInterceptor implements NestInterceptor {
           const { statusCode } = response;
           const responseTime = Date.now() - now;
 
-          this.logger.log(
+          console.log(
             `[${method}] ${url} - Status: ${statusCode} - ${responseTime}ms`,
           );
-          this.logger.debug('Response Data:', data);
+          console.log('Response Data:', data);
         },
         error: (error) => {
           const responseTime = Date.now() - now;
-          this.logger.error(
+          console.error(
             `[${method}] ${url} - Error: ${error.message} - ${responseTime}ms`,
           );
-          this.logger.error('Error Stack:', error.stack);
+          console.error('Error Stack:', error.stack);
         },
       }),
     );
