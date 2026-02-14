@@ -1,4 +1,4 @@
-// import { PartialType } from '@nestjs/swagger';
-// import { CreateRecordDto } from './create-or-update-record.dto';
+import { PartialType } from '@nestjs/swagger';
+import { CreateOrUpdateRecordDto } from './create-or-update-record.dto';
 
-// export class UpdateRecordDto extends PartialType(CreateRecordDto) {}
+export class UpdateRecordDto extends PartialType(CreateOrUpdateRecordDto) {}

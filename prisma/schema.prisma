@@ -64,7 +64,11 @@ model Habit {
   noticeTime    DateTime[]
   themeColor    Int
 
-  records Record[] 
+  currentStreak  Int       @default(0)
+  longestStreak  Int       @default(0)
+  lastCompletedAt DateTime?
+
+  records Record[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -83,4 +87,7 @@ model Record {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([habitId, date])
+  @@index([userId, date])
 }

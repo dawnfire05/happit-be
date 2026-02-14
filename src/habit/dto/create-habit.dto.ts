@@ -35,7 +35,18 @@ export class CreateHabitDTO {
   })
   repeatDay?: ('mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun')[];
 
+  @ApiProperty({
+    description: 'Notification times',
+    type: [Date],
+    isArray: true,
+    required: false,
+  })
   noticeTime?: Date[];
 
-  themeColor: number; //enum : 0, 1, 2, 3, 4
+  @ApiProperty({
+    description: 'Theme color index (0, 1, 2, 3, 4)',
+    minimum: 0,
+    maximum: 4,
+  })
+  themeColor: number;
 }
