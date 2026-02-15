@@ -44,9 +44,8 @@ export class CreateHabitDTO {
   noticeTime?: Date[];
 
   @ApiProperty({
-    description: 'Theme color index (0, 1, 2, 3, 4)',
-    minimum: 0,
-    maximum: 4,
+    description: 'Theme color as hex string (#RRGGBB)',
+    example: '#66D271',
   })
-  themeColor: number;
+  themeColor: string;
 }

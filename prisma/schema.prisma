@@ -62,7 +62,7 @@ model Habit {
   repeatType    RepeatType
   repeatDay     DayOfWeek[]
   noticeTime    DateTime[]
-  themeColor    Int
+  themeColor    String  @default("#66D271")
 
   currentStreak  Int       @default(0)
   longestStreak  Int       @default(0)

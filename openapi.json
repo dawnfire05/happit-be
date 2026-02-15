@@ -487,16 +487,86 @@
                 "sun"
               ]
             }
+          },
+          "noticeTime": {
+            "description": "Notification times",
+            "items": {
+              "type": "array"
+            },
+            "type": "array"
+          },
+          "themeColor": {
+            "type": "number",
+            "description": "Theme color index (0, 1, 2, 3, 4)",
+            "minimum": 0,
+            "maximum": 4
           }
         },
         "required": [
           "name",
-          "repeatType"
+          "repeatType",
+          "themeColor"
         ]
       },
       "UpdateHabitDTO": {
         "type": "object",
-        "properties": {}
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the habit"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of the habit",
+            "default": "none"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the habit"
+          },
+          "archiveStatus": {
+            "type": "boolean",
+            "description": "The archive status of the habit",
+            "default": false
+          },
+          "repeatType": {
+            "type": "string",
+            "description": "The repeat type of the habit",
+            "enum": [
+              "daily",
+              "weekly"
+            ]
+          },
+          "repeatDay": {
+            "type": "array",
+            "description": "The repeat days of the habit",
+            "items": {
+              "type": "string",
+              "enum": [
+                "mon",
+                "tue",
+                "wed",
+                "thu",
+                "fri",
+                "sat",
+                "sun"
+              ]
+            }
+          },
+          "noticeTime": {
+            "description": "Notification times",
+            "items": {
+              "type": "array"
+            },
+            "type": "array"
+          },
+          "themeColor": {
+            "type": "number",
+            "description": "Theme color index (0, 1, 2, 3, 4)",
+            "minimum": 0,
+            "maximum": 4
+          }
+        }
       },
       "CreateOrUpdateRecordDto": {
         "type": "object",
@@ -531,10 +601,12 @@
         "properties": {
           "date": {
             "type": "string",
+            "description": "Record date (YYYY-MM-DD)",
             "example": "2025-02-15"
           },
           "state": {
             "type": "string",
+            "description": "Completion state",
             "enum": [
               "done",
               "notDone",
@@ -551,9 +623,11 @@
         "type": "object",
         "properties": {
           "habitId": {
-            "type": "number"
+            "type": "number",
+            "description": "Habit id"
           },
           "records": {
+            "description": "Records in the date range (for grass view)",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/GrassRecordItemDto"
