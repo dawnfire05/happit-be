@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
+import { BusinessExceptionFilter } from './common/business-exception.filter';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as dotenv from 'dotenv';
 
@@ -11,6 +12,7 @@ async function bootstrap() {
     logger: ['error', 'warn', 'log', 'debug', 'verbose'],
   });
   app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalFilters(new BusinessExceptionFilter());
 
   const config = new DocumentBuilder()
     .setTitle('Happit API')

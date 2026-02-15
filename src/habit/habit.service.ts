@@ -15,7 +15,16 @@ export class HabitService {
     );
 
     const repeatDay = (data.repeatDay ?? []).map((d) =>
-      typeof d === 'string' ? d.toLowerCase() as 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun' : d,
+      typeof d === 'string'
+        ? (d.toLowerCase() as
+            | 'mon'
+            | 'tue'
+            | 'wed'
+            | 'thu'
+            | 'fri'
+            | 'sat'
+            | 'sun')
+        : d,
     );
 
     return this.prisma.habit.create({

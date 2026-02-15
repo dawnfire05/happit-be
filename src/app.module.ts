@@ -12,7 +12,14 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
 import { LoggingInterceptor } from './interceptors/logging.interceptor';
 
 @Module({
-  imports: [AuthModule, UserModule, PrismaModule, HabitModule, FirebaseModule, RecordModule],
+  imports: [
+    AuthModule,
+    UserModule,
+    PrismaModule,
+    HabitModule,
+    FirebaseModule,
+    RecordModule,
+  ],
   controllers: [AppController],
   providers: [
     AppService,

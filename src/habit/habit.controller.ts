@@ -8,7 +8,6 @@ import {
   Delete,
   ParseIntPipe,
   UseGuards,
-  UnauthorizedException,
   Request,
 } from '@nestjs/common';
 import { HabitService } from './habit.service';
@@ -17,6 +16,8 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { CreateHabitDTO } from './dto/create-habit.dto';
 import { UpdateHabitDTO } from './dto/update-habit.dto';
 import { ApiBearerAuth, ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { BusinessException } from '../common/business-exception';
+import { ErrorCode } from '../common/error-code';
 
 @ApiTags('habit')
 @ApiBearerAuth()
@@ -50,10 +51,7 @@ export class HabitController {
   ): Promise<Habit | null> {
     const habit = await this.habitService.getHabitById(id);
     if (habit.userId === req.user.id) return habit;
-    else
-      throw new UnauthorizedException(
-        'you can only access habit created by yourself',
-      );
+    else throw new BusinessException(ErrorCode.FORBIDDEN_HABIT_ACCESS, 403);
   }
 
   @Patch(':id')
@@ -65,8 +63,7 @@ export class HabitController {
     const habit = await this.habitService.getHabitById(id);
     if (habit.userId === req.user.id) {
       return this.habitService.updateHabit(id, data);
-    } else
-      throw new UnauthorizedException('You can only update your own habits.');
+    } else throw new BusinessException(ErrorCode.FORBIDDEN_HABIT_UPDATE, 403);
   }
 
   @Delete(':id')
@@ -77,7 +74,6 @@ export class HabitController {
     const habit = await this.habitService.getHabitById(id);
     if (habit.userId === req.user.id) {
       return this.habitService.deleteHabit(id);
-    } else
-      throw new UnauthorizedException('You can only delete your own habits.');
+    } else throw new BusinessException(ErrorCode.FORBIDDEN_HABIT_DELETE, 403);
   }
 }

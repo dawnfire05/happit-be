@@ -1,7 +1,9 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { UserService } from 'src/user/user.service';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { BusinessException } from '../common/business-exception';
+import { ErrorCode } from '../common/error-code';
 import * as bcrypt from 'bcrypt';
 
 @Injectable()
@@ -78,7 +80,7 @@ export class AuthService {
       );
 
       if (!user) {
-        throw new UnauthorizedException('Invalid refresh token');
+        throw new BusinessException(ErrorCode.INVALID_REFRESH_TOKEN, 401);
       }
 
       const newPayload = { username: user.username, sub: user.id };
@@ -97,7 +99,7 @@ export class AuthService {
         refresh_token: newRefreshToken,
       };
     } catch (e) {
-      throw new UnauthorizedException('Invalid refresh token');
+      throw new BusinessException(ErrorCode.INVALID_REFRESH_TOKEN, 401);
     }
   }
 }
