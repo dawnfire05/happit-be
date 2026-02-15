@@ -9,12 +9,15 @@ import {
   ParseIntPipe,
   UseGuards,
   Request,
+  Query,
+  DefaultValuePipe,
 } from '@nestjs/common';
 import { HabitService } from './habit.service';
 import { Habit } from '@prisma/client';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { CreateHabitDTO } from './dto/create-habit.dto';
 import { UpdateHabitDTO } from './dto/update-habit.dto';
+import { DashboardResponseDto } from './dto/dashboard-response.dto';
 import { ApiBearerAuth, ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { BusinessException } from '../common/business-exception';
 import { ErrorCode } from '../common/error-code';
@@ -42,6 +45,19 @@ export class HabitController {
   @ApiResponse({ status: 200, description: 'successful' })
   async getHabits(@Request() req): Promise<Habit[]> {
     return this.habitService.getHabits(req.user.id);
+  }
+
+  @Get('dashboard')
+  @ApiResponse({
+    status: 200,
+    description: 'Dashboard with habits and records (N+1 optimized)',
+    type: DashboardResponseDto,
+  })
+  async getDashboard(
+    @Query('months', new DefaultValuePipe(3), ParseIntPipe) months: number,
+    @Request() req,
+  ): Promise<DashboardResponseDto> {
+    return this.habitService.getDashboard(req.user.id, months);
   }
 
   @Get(':id')
