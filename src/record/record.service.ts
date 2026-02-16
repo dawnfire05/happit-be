@@ -123,7 +123,14 @@ export class RecordService {
         },
       });
 
-      return record;
+      // Streak 정보도 함께 반환 (Frontend에서 부분 업데이트용)
+      return {
+        record,
+        updatedStreak: streak.currentStreak,
+        longestStreak: streak.longestStreak,
+        lastCompletedAt: streak.lastCompletedAt,
+        timestamp: new Date().toISOString(),
+      };
     });
   }
 

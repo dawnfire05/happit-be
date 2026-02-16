@@ -15,6 +15,7 @@ import { RecordService } from './record.service';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { CreateOrUpdateRecordDto } from './dto/create-or-update-record.dto';
 import { GrassItemDto } from './dto/grass-response.dto';
+import { ToggleRecordResponseDto } from './dto/toggle-record-response.dto';
 import { ApiTags, ApiOkResponse } from '@nestjs/swagger';
 
 @ApiTags('record')
@@ -24,7 +25,14 @@ export class RecordController {
   constructor(private readonly recordService: RecordService) {}
 
   @Post()
-  createRecord(@Body() createRecordDto: CreateOrUpdateRecordDto, @Req() req) {
+  @ApiOkResponse({
+    description: 'Record created/updated with updated streak info',
+    type: ToggleRecordResponseDto,
+  })
+  createRecord(
+    @Body() createRecordDto: CreateOrUpdateRecordDto,
+    @Req() req,
+  ): Promise<ToggleRecordResponseDto> {
     return this.recordService.createOrUpdateRecord(
       createRecordDto,
       req.user.id,
